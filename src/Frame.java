@@ -18,17 +18,4 @@ public abstract class Frame {
         return frame;
     }
 
-    protected JButton createAButton(int width, int height, int buttonWidth, int buttonHeight){
-
-        Font ft2 = new Font("Comic", Font.BOLD, 10);
-        JButton button = new JButton("Start Game");
-
-        button.setFont(ft2);
-        button.setBackground(Color.LIGHT_GRAY);
-        button.setBounds(width/2-(buttonWidth/2),height/8,buttonWidth,buttonHeight);
-        button.setBorder(null);
-
-        return button;
-    }
-
 }
