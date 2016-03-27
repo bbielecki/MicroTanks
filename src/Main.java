@@ -5,9 +5,10 @@ import javax.swing.*;
  */
 public class Main {
     public static void main(String[] args) {
-        int width = 700, buttonWidth = width/4;
-        int height = 600, buttonHeight = height/8;
+
         MainMenu mainMenu = new MainMenu();
-        mainMenu.createAFrame(width,height,"Main Menu").setVisible(true);
+        JFrame mainMenuFrame= mainMenu.createAFrame(mainMenu.getWidth(),mainMenu.getHeight(),"Main Menu");
+        mainMenu.createFrameButtons(mainMenuFrame);
+        mainMenuFrame.setVisible(true);
     }
 }

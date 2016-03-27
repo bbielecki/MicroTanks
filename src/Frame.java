@@ -6,6 +6,8 @@ import java.awt.*;
  */
 public abstract class Frame {
 
+    protected int width=0, height=0;
+
     protected JFrame createAFrame(int width, int height, String name){
 
         JFrame frame = new JFrame(name);
@@ -17,5 +19,8 @@ public abstract class Frame {
 
         return frame;
     }
+
+    public int getWidth(){return width;}
+    public int getHeight(){return height;}
 
 }
