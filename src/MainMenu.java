@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class MainMenu extends Frame {
 
     public MainMenu(){
-        this.width=width*4/5;
+        this.width=width/2;
         this.height=height*3/4;
     }
 
@@ -49,7 +49,8 @@ public class MainMenu extends Frame {
         newGameButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                newGame.createNewGameFrame(newGameFrame);
+                newGame.createNewGameFrame(newGameFrame, frame);
+                frame.setVisible(false);
                 newGameFrame.setVisible(true);
 
             }
@@ -75,6 +76,8 @@ public class MainMenu extends Frame {
         exitButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                exit.createAnExitFrame(exitFrame);
                 exitFrame.setVisible(true);
             }
         });

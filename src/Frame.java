@@ -10,6 +10,8 @@ public abstract class Frame {
     Dimension dim = kit.getScreenSize();
     protected int width = (int) dim.getWidth();
     protected int height = (int) dim.getHeight();
+    protected int buttonHeight = height/8;
+    protected int buttonWidth = width/4;
     Font ft2 = new Font("Comic", Font.BOLD, 25);
 
     protected JFrame createAFrame(int width, int height, String name){

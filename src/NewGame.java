@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Bartłomiej on 2016-03-26.
@@ -15,14 +17,14 @@ public class NewGame extends Frame {
         this.height=height*3/4;
     }
 
-    public void createNewGameFrame(JFrame frame){
+    public void createNewGameFrame(JFrame newGameFrame, JFrame mainMenuFrame){
 
         int buttonHeight = height/8;
         int buttonWidth = width/4;
         JButton startGameButton = createAButton(width, height, 5, "START GAME");
         JButton pauseButton = createAButton(width, height, 5, "EXIT");
 
-        frame.setResizable(false);
+        newGameFrame.setResizable(false);
         JTextField p1 = new JTextField("Podaj prosze imie gracza 1");
         JTextField p2 = new JTextField("Podaj prosze imie gracza 2");
         p1.setEditable(false);
@@ -35,8 +37,8 @@ public class NewGame extends Frame {
         p2.setFont(janusz);
         p1.setBorder(BorderFactory.createEmptyBorder());
         p2.setBorder(BorderFactory.createEmptyBorder());
-        frame.add(p2);
-        frame.add(p1);
+        newGameFrame.add(p2);
+        newGameFrame.add(p1);
 
         JTextField player1 = new JTextField("     player 1");
         JTextField player2 = new JTextField("     player 2");
@@ -46,8 +48,8 @@ public class NewGame extends Frame {
         player2.setVisible(true);
         player1.setFont(ft2);
         player2.setFont(ft2);
-        frame.add(player1);
-        frame.add(player2);
+        newGameFrame.add(player1);
+        newGameFrame.add(player2);
 
         JTextField tankColor1 = new JTextField("Wybierz kolor czolgu 1");
         JTextField tankColor2 = new JTextField("Wybierz kolor czolgu 2");
@@ -61,8 +63,8 @@ public class NewGame extends Frame {
         tankColor2.setFont(janusz);
         tankColor1.setBorder(BorderFactory.createEmptyBorder());
         tankColor2.setBorder(BorderFactory.createEmptyBorder());
-        frame.add(tankColor2);
-        frame.add(tankColor1);
+        newGameFrame.add(tankColor2);
+        newGameFrame.add(tankColor1);
 
         Choice jaco = new Choice();
         jaco.add("Czerwony");
@@ -70,14 +72,14 @@ public class NewGame extends Frame {
         jaco.add("Zielony");
         jaco.setBounds(width / 6 , height / 9 +(3*buttonHeight+3*2),buttonWidth/2,buttonHeight/2);
         jaco.setVisible(true);
-        frame.add(jaco);
+        newGameFrame.add(jaco);
         Choice jaco2 = new Choice();
         jaco2.add("Czerwony");
         jaco2.add("Niebieski");
         jaco2.add("Zielony");
         jaco2.setBounds(width / 6 +buttonWidth*2, height / 9 +(3*buttonHeight+3*2),buttonWidth/2,buttonHeight/2);
         jaco2.setVisible(true);
-        frame.add(jaco2);
+        newGameFrame.add(jaco2);
 
         JTextField tanksNumber= new JTextField("Wybierz liczbe czolgow");
         tanksNumber.setEditable(false);
@@ -85,7 +87,7 @@ public class NewGame extends Frame {
         tanksNumber.setVisible(true);
         tanksNumber.setFont(janusz);
         tanksNumber.setBorder(BorderFactory.createEmptyBorder());
-        frame.add(tanksNumber);
+        newGameFrame.add(tanksNumber);
 
         Choice tanksNum = new Choice();
         tanksNum.add("1");
@@ -93,17 +95,29 @@ public class NewGame extends Frame {
         tanksNum.add("3");
         tanksNum.setBounds(width / 2 - (buttonWidth / 3) , height / 9 +(buttonHeight*9/2)+4*2,buttonWidth/2,buttonHeight/2);
         tanksNum.setVisible(true);
-        frame.add(tanksNum);
+        newGameFrame.add(tanksNum);
 
         startGameButton.setBounds(width / 6 +buttonWidth*2, height / 8 +(5*buttonHeight), buttonWidth, buttonHeight/2);
         startGameButton.setVisible(true);
         startGameButton.setBorder(BorderFactory.createRaisedBevelBorder());
-        frame.add(startGameButton);
+        newGameFrame.add(startGameButton);
 
         pauseButton.setBounds(width / 6-buttonWidth/4, height / 8 +(5*buttonHeight), buttonWidth, buttonHeight/2);
         pauseButton.setBorder(BorderFactory.createRaisedBevelBorder());
         pauseButton.setVisible(true);
-        frame.add(pauseButton);
+        newGameFrame.add(pauseButton);
 
+
+        pauseButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                newGameFrame.setVisible(false);
+                mainMenuFrame.setVisible(true);
+
+            }
+        });
     }
+
+
 }
