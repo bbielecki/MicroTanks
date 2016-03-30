@@ -3,7 +3,6 @@
  */
 public class Rules extends Frame {
     public Rules() {
-        width = 500;
-        height = 700;
+
     }
 }

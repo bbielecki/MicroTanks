@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 public class MainMenu extends Frame {
 
     public MainMenu(){
-        width = 700;
-        height = 600;
+        this.width=width*4/5;
+        this.height=height*3/4;
     }
 
     private int buttonWidth=0, buttonHeight=0;
@@ -26,7 +26,7 @@ public class MainMenu extends Frame {
         JFrame rulesFrame;
         JFrame authorsFrame;
         JFrame bestScoresFrame;
-        JFrame exiteFrame;
+        JFrame exitFrame;
 
         JButton newGameButton = createAButton(width, height, 0, "New Game");
         JButton rulesButton = createAButton(width, height, 1, "Rules");
@@ -38,7 +38,7 @@ public class MainMenu extends Frame {
         rulesFrame = rules.createAFrame(rules.getWidth(), rules.getHeight(), "Rules");
         authorsFrame = authors.createAFrame(authors.getWidth(), authors.getHeight(), "Authors");
         bestScoresFrame = bestScores.createAFrame(bestScores.getWidth(), bestScores.getHeight(), "Best Scores");
-        exiteFrame = exit.createAFrame(exit.getWidth(), exit.getHeight(), "Exit");
+        exitFrame = exit.createAFrame(exit.getWidth(), exit.getHeight(), "Exit");
 
         frame.add(newGameButton);
         frame.add(rulesButton);
@@ -49,7 +49,9 @@ public class MainMenu extends Frame {
         newGameButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                newGame.createNewGameFrame(newGameFrame);
                 newGameFrame.setVisible(true);
+
             }
         });
         rulesButton.addActionListener(new ActionListener(){
@@ -73,23 +75,10 @@ public class MainMenu extends Frame {
         exitButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                exiteFrame.setVisible(true);
+                exitFrame.setVisible(true);
             }
         });
     }
 
-    private JButton createAButton(int width, int height, int numberOfButton, String name) {
-        int buttonHeight = height/8;
-        int buttonWidth = width/4;
-        Font ft2 = new Font("Comic", Font.BOLD, 25);
-        JButton button = new JButton(name);
 
-        button.setFont(ft2);
-        button.setBackground(Color.LIGHT_GRAY);
-        button.setBounds(width / 2 - (buttonWidth / 2), height / 8 +(numberOfButton*buttonHeight+numberOfButton*20), buttonWidth, buttonHeight);
-        button.setBorder(null);
-
-        return button;
-
-    }
 }

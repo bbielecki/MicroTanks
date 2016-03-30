@@ -4,7 +4,5 @@
 public class Authors extends Frame {
 
     public Authors() {
-        width = 400;
-        height = 400;
     }
 }

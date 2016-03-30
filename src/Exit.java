@@ -3,7 +3,5 @@
  */
 public class Exit extends Frame {
     public Exit() {
-        width = 400;
-        height = 500;
     }
 }

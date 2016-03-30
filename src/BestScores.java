@@ -3,7 +3,5 @@
  */
 public class BestScores extends Frame {
     public BestScores() {
-        width = 900;
-        height = 600;
     }
 }

@@ -6,7 +6,11 @@ import java.awt.*;
  */
 public abstract class Frame {
 
-    protected int width=0, height=0;
+    Toolkit kit = Toolkit.getDefaultToolkit();
+    Dimension dim = kit.getScreenSize();
+    protected int width = (int) dim.getWidth();
+    protected int height = (int) dim.getHeight();
+    Font ft2 = new Font("Comic", Font.BOLD, 25);
 
     protected JFrame createAFrame(int width, int height, String name){
 
@@ -18,6 +22,20 @@ public abstract class Frame {
         frame.setLayout(null);
 
         return frame;
+    }
+
+    protected JButton createAButton(int width, int height, int numberOfButton, String name) {
+        int buttonHeight = height/8;
+        int buttonWidth = width/4;
+        JButton button = new JButton(name);
+
+        button.setFont(ft2);
+        button.setBackground(Color.LIGHT_GRAY);
+        button.setBounds(width / 2 - (buttonWidth / 2), height / 8 +(numberOfButton*buttonHeight+numberOfButton*20), buttonWidth, buttonHeight);
+        button.setBorder(null);
+
+        return button;
+
     }
 
     public int getWidth(){return width;}
